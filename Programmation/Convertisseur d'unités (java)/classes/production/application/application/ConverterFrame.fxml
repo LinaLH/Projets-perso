@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Load">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/add_file-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Save">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/save-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onQuitAction" text="Quit">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0">
+                                 <image>
+                                    <Image url="@../icons/shutdown-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit" />
+                  <Menu mnemonicParsing="false" text="Preferences">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Buttons Display">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithGraphicsOnlyAction" selected="true" text="Graphics Only">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="buttonsDisplayGroup" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithTextAndGraphicsAction" text="Text + Graphics" toggleGroup="$buttonsDisplayGroup" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onDisplayButtonsWithTextOnlyAction" text="Text Only" toggleGroup="$buttonsDisplayGroup" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Debug Level">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToInfoAction" selected="true" text="Info + Warning + Severe">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="debugLevelGroup" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToWarningAction" text="Warning + Severe" toggleGroup="$debugLevelGroup" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelUpToSevereAction" text="Severe" toggleGroup="$debugLevelGroup" />
+                              <RadioMenuItem mnemonicParsing="false" onAction="#onSetLoggerLevelOffAction" text="Off" toggleGroup="$debugLevelGroup" />
+                           </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/about-16.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar>
+              <items>
+                  <Separator orientation="VERTICAL" />
+                  <HBox HBox.hgrow="ALWAYS" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
